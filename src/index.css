@@ -1,0 +1,110 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 6%; /* Dark background */
+    --foreground: 50 100% 70%; /* Gold text */
+
+    --card: 0 0% 9%; /* Slightly lighter dark for cards */
+    --card-foreground: 50 100% 80%; /* Lighter gold for card text */
+
+    --popover: 0 0% 4%; /* Dark popover */
+    --popover-foreground: 50 100% 80%; /* Gold for popover text */
+
+    --primary: 50 100% 60%; /* Gold for primary elements */
+    --primary-foreground: 0 0% 6%; /* Dark on gold */
+
+    --secondary: 0 0% 15%; /* Dark gray for secondary elements */
+    --secondary-foreground: 50 100% 70%; /* Gold on secondary */
+
+    --muted: 0 0% 15%; /* Dark gray for muted elements */
+    --muted-foreground: 50 90% 70%; /* Muted gold */
+
+    --accent: 50 100% 50%; /* Gold accent */
+    --accent-foreground: 0 0% 6%; /* Dark on accent */
+
+    --destructive: 0 84.2% 60.2%; /* Keep standard destructive */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 50 70% 50%; /* Gold borders */
+    --input: 0 0% 20%; /* Dark inputs */
+    --ring: 50 100% 60%; /* Gold rings */
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 6%; /* Dark sidebar */
+    --sidebar-foreground: 50 100% 70%; /* Gold sidebar text */
+    --sidebar-primary: 50 100% 60%; /* Gold for primary elements */
+    --sidebar-primary-foreground: 0 0% 6%; /* Dark on gold */
+    --sidebar-accent: 0 0% 15%; /* Dark accent for sidebar */
+    --sidebar-accent-foreground: 50 100% 70%; /* Gold on accent */
+    --sidebar-border: 50 70% 50%; /* Gold borders */
+    --sidebar-ring: 50 100% 60%; /* Gold rings */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+}
+
+@layer components {
+  .gold-border {
+    @apply border border-gold-500/50 shadow-[0_0_5px_rgba(218,165,32,0.3)];
+  }
+
+  .gold-text-gradient {
+    @apply bg-gradient-to-r from-gold-300 via-gold-500 to-gold-300 bg-clip-text text-transparent;
+  }
+
+  .gold-card {
+    @apply bg-black/60 border border-gold-500/30 shadow-[0_0_10px_rgba(218,165,32,0.2)];
+  }
+  
+  .gold-button {
+    @apply bg-gold-gradient text-black font-semibold px-4 py-2 rounded-md hover:opacity-90 transition-opacity;
+  }
+  
+  .nav-link {
+    @apply relative px-3 py-2 transition-all duration-300 hover:text-gold-400;
+  }
+  
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-[2px] bg-gold-gradient transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .nav-link.active::after {
+    @apply w-full;
+  }
+  
+  .shimmer {
+    @apply bg-gold-shimmer bg-[length:200%_100%] animate-shimmer;
+  }
+
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+}
