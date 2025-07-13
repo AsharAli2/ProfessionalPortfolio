@@ -42,7 +42,7 @@ const Hero = () => {
           <div className="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-black gold-border p-2 shimmer">
             <div className="w-full h-full rounded-full bg-black overflow-hidden">
               <CloudinaryImage
-                imagePath="Profile-picure"
+                imagePath="Picture"
                 alt="Ashar Ali Khan - Software Engineer"
                 width={400}
                 height={400}
