@@ -5,44 +5,44 @@
 
 @layer base {
   :root {
-    --background: 0 0% 6%; /* Dark background */
-    --foreground: 50 100% 70%; /* Gold text */
+    --background: 0 0% 100%; /* paper */
+    --foreground: 30 13% 9%; /* ink */
 
-    --card: 0 0% 9%; /* Slightly lighter dark for cards */
-    --card-foreground: 50 100% 80%; /* Lighter gold for card text */
+    --card: 0 0% 100%;
+    --card-foreground: 30 13% 9%;
 
-    --popover: 0 0% 4%; /* Dark popover */
-    --popover-foreground: 50 100% 80%; /* Gold for popover text */
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 13% 9%;
 
-    --primary: 50 100% 60%; /* Gold for primary elements */
-    --primary-foreground: 0 0% 6%; /* Dark on gold */
+    --primary: 30 13% 9%; /* ink */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 15%; /* Dark gray for secondary elements */
-    --secondary-foreground: 50 100% 70%; /* Gold on secondary */
+    --secondary: 40 33% 94%; /* bone */
+    --secondary-foreground: 30 13% 9%;
 
-    --muted: 0 0% 15%; /* Dark gray for muted elements */
-    --muted-foreground: 50 90% 70%; /* Muted gold */
+    --muted: 40 33% 94%;
+    --muted-foreground: 30 7% 27%; /* ash */
 
-    --accent: 50 100% 50%; /* Gold accent */
-    --accent-foreground: 0 0% 6%; /* Dark on accent */
+    --accent: 40 33% 94%; /* bone */
+    --accent-foreground: 30 13% 9%;
 
-    --destructive: 0 84.2% 60.2%; /* Keep standard destructive */
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 13 67% 46%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 50 70% 50%; /* Gold borders */
-    --input: 0 0% 20%; /* Dark inputs */
-    --ring: 50 100% 60%; /* Gold rings */
+    --border: 36 16% 90%; /* warm hairline */
+    --input: 36 16% 88%;
+    --ring: 13 67% 46%; /* paprika */
 
-    --radius: 0.5rem;
+    --radius: 0.25rem;
 
-    --sidebar-background: 0 0% 6%; /* Dark sidebar */
-    --sidebar-foreground: 50 100% 70%; /* Gold sidebar text */
-    --sidebar-primary: 50 100% 60%; /* Gold for primary elements */
-    --sidebar-primary-foreground: 0 0% 6%; /* Dark on gold */
-    --sidebar-accent: 0 0% 15%; /* Dark accent for sidebar */
-    --sidebar-accent-foreground: 50 100% 70%; /* Gold on accent */
-    --sidebar-border: 50 70% 50%; /* Gold borders */
-    --sidebar-ring: 50 100% 60%; /* Gold rings */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 30 13% 9%;
+    --sidebar-primary: 30 13% 9%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 33% 94%;
+    --sidebar-accent-foreground: 30 13% 9%;
+    --sidebar-border: 36 16% 90%;
+    --sidebar-ring: 13 67% 46%;
   }
 }
 
@@ -52,46 +52,46 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    @apply bg-paper text-ink font-sans antialiased;
+    font-size: 15px;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-paprika text-white;
   }
 }
 
 @layer components {
-  .gold-border {
-    @apply border border-gold-500/50 shadow-[0_0_5px_rgba(218,165,32,0.3)];
+  /* Mono uppercase label used for eyebrows / meta */
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.14em] text-ink/60;
   }
 
+  .gold-border {
+    @apply border border-rule;
+  }
+
+  /* Legacy alias — now plain ink */
   .gold-text-gradient {
-    @apply bg-gradient-to-r from-gold-300 via-gold-500 to-gold-300 bg-clip-text text-transparent;
+    @apply text-ink;
   }
 
   .gold-card {
-    @apply bg-black/60 border border-gold-500/30 shadow-[0_0_10px_rgba(218,165,32,0.2)];
+    @apply bg-paper border border-rule rounded transition-colors duration-200 hover:border-ink;
   }
-  
+
   .gold-button {
-    @apply bg-gold-gradient text-black font-semibold px-4 py-2 rounded-md hover:opacity-90 transition-opacity;
+    @apply inline-flex items-center justify-center gap-2 bg-ink text-white font-medium text-sm px-[18px] py-[10px] rounded transition-colors duration-150 hover:bg-paprika;
   }
-  
+
   .nav-link {
-    @apply relative px-3 py-2 transition-all duration-300 hover:text-gold-400;
+    @apply text-sm text-ink transition-colors duration-150 hover:text-paprika;
   }
-  
-  .nav-link::after {
-    @apply content-[''] absolute bottom-0 left-0 w-0 h-[2px] bg-gold-gradient transition-all duration-300;
-  }
-  
-  .nav-link:hover::after {
-    @apply w-full;
-  }
-  
-  .nav-link.active::after {
-    @apply w-full;
-  }
-  
-  .shimmer {
-    @apply bg-gold-shimmer bg-[length:200%_100%] animate-shimmer;
+
+  .nav-link.active {
+    @apply text-paprika;
   }
 
   .line-clamp-1 {

@@ -1,80 +1,69 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import CloudinaryImage from "./CloudinaryImage";
+
+const chips = [
+  { k: "Now", v: <>Geeks of <em className="italic text-paprika">Kolachi</em></> },
+  { k: "Focus", v: <>Backend &amp; <em className="italic text-paprika">distributed</em> systems</> },
+  { k: "Based in", v: <>Karachi, <em className="italic text-paprika">Pakistan</em></> },
+  { k: "Open to", v: <>Startup <em className="italic text-paprika">opportunities</em></> },
+];
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden pt-16 pb-[20px]">
-      {/* Background elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-gold-500/10 blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-20 w-96 h-96 rounded-full bg-gold-500/10 blur-3xl"></div>
-      </div>
-
-      <div className="container mx-auto px-4 z-10 text-center lg:text-left flex flex-col lg:flex-row items-center justify-between gap-12">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="gold-text-gradient">Software Engineer</span>
-          </h1>
-
-          <p className="text-xl mb-8 text-gray-300 text-justify">
-            Passionate Software Engineer specializing in building custom
-            software solutions. I help businesses and individuals bring their
-            ideas to life through scalable web and mobile applications. Expert
-            in modern technologies with a focus on creating efficient,
-            user-friendly, and robust software systems.
-          </p>
-
-          <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-            <Link to="/projects" className="gold-button">
-              View Projects
-            </Link>
-            <Link
-              to="/contact"
-              className="border border-gold-500 text-gold-500 font-semibold px-4 py-2 rounded-md hover:bg-gold-500/10 transition-colors"
-            >
-              Contact Me
-            </Link>
-          </div>
+    <section className="pt-24 pb-16 md:pt-28 md:pb-20">
+      <div className="max-w-[1240px] mx-auto px-6 md:px-10">
+        {/* Eyebrow row */}
+        <div className="flex items-center gap-4 mb-9">
+          <span className="h-2 w-2 rounded-full bg-paprika" />
+          <span className="eyebrow">Software Engineer · Karachi, PK</span>
         </div>
 
-        <div className="relative">
-          <div className="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-black gold-border p-2 shimmer">
-            <div className="w-full h-full rounded-full bg-black overflow-hidden">
-              <CloudinaryImage
-                imagePath="Picture"
-                alt="Ashar Ali Khan - Software Engineer"
-                width={400}
-                height={400}
-                className="w-full h-full object-cover rounded-full"
-              />
-            </div>
-          </div>
+        {/* Display headline */}
+        <h1 className="font-serif font-normal text-ink tracking-[-0.028em] leading-[0.98] text-[2rem] sm:text-4xl lg:text-5xl xl:text-[3.75rem] max-w-[860px] mb-9">
+          Building reliable <em className="italic text-paprika">backend</em> &amp;
+          distributed systems for <em className="italic text-paprika">products</em> that scale.
+        </h1>
 
-          <div className="absolute -bottom-4 -right-0  bg-black gold-border px-4 py-2 rounded-lg">
-            <span className="gold-text-gradient font-semibold">
-              Currently available for work
+        {/* Sub row with hairline */}
+        <div className="border-t border-rule pt-7 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <p className="font-sans text-lg sm:text-xl leading-relaxed text-ink max-w-2xl">
+            I&apos;m <strong className="font-bold">Ashar Ali Khan</strong> — a software
+            engineer passionate about building products, solving problems, and
+            exploring startup ideas across backend architecture, automation, and AI.
+          </p>
+
+          <div className="flex flex-col items-start gap-3 shrink-0">
+            <div className="flex flex-wrap items-center gap-3">
+              <a href="#contact" className="gold-button">
+                Get in touch
+                <span aria-hidden>→</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ashar-ali-khan-971633251/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded border border-rule px-[18px] py-[10px] text-sm font-medium text-ink transition-colors hover:border-ink"
+              >
+                View LinkedIn ↗
+              </a>
+            </div>
+            <span className="font-mono text-[11px] tracking-[0.08em] text-ink/55">
+              AVAILABLE FOR OPPORTUNITIES
             </span>
           </div>
         </div>
-      </div>
 
-      <div className="absolute bottom-10 left-0 w-full flex justify-center">
-        <div className="animate-bounce">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8 text-gold-500"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
+        {/* Overlay chips */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mt-14">
+          {chips.map((chip, i) => (
+            <div key={i} className="border border-rule rounded px-4 py-3.5 flex flex-col gap-1.5">
+              <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink/55">
+                {chip.k}
+              </span>
+              <span className="font-serif text-lg leading-tight tracking-[-0.01em]">
+                {chip.v}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

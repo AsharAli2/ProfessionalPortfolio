@@ -19,7 +19,22 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				serif: ['"Sorts Mill Goudy"', 'Georgia', 'serif'],
+				sans: ['Geist', 'system-ui', 'sans-serif'],
+				mono: ['"Geist Mono"', 'ui-monospace', 'monospace'],
+			},
 			colors: {
+				// Editorial / print palette
+				paper: '#ffffff',
+				ink: '#1a1714',
+				paprika: '#C44827',
+				clay: '#8A3A1F',
+				butter: '#F2D89E',
+				moss: '#6B7A4F',
+				ash: '#4A4540',
+				bone: '#F5F1EA',
+				rule: '#1a171422',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -63,17 +78,19 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
+				// Brand accent ramp (indigo → violet). Kept under the `gold`
+				// key so existing utility usages re-theme automatically.
 				gold: {
-					50: '#FFF9E6',
-					100: '#FFF4CC',
-					200: '#FFE999',
-					300: '#FFDF66',
-					400: '#FFD433',
-					500: '#FFCA00',
-					600: '#CCA200',
-					700: '#997900',
-					800: '#665100',
-					900: '#332800',
+					50: '#eef2ff',
+					100: '#e0e7ff',
+					200: '#c7d2fe',
+					300: '#a5b4fc',
+					400: '#818cf8',
+					500: '#6366f1',
+					600: '#4f46e5',
+					700: '#4338ca',
+					800: '#3730a3',
+					900: '#312e81',
 				},
 			},
 			borderRadius: {
@@ -101,17 +118,22 @@ export default {
 				'shimmer': {
 					from: { backgroundPosition: '200% 0' },
 					to: { backgroundPosition: '-200% 0' }
+				},
+				'fade-up': {
+					from: { opacity: '0', transform: 'translateY(16px)' },
+					to: { opacity: '1', transform: 'translateY(0)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'shimmer': 'shimmer 8s ease-in-out infinite'
+				'shimmer': 'shimmer 8s ease-in-out infinite',
+				'fade-up': 'fade-up 0.6s ease-out both'
 			},
 			backgroundImage: {
-				'gold-gradient': 'linear-gradient(135deg, #FFD700 0%, #DAA520 100%)',
-				'gold-shimmer': 'linear-gradient(90deg, rgba(218,165,32,0.1) 25%, rgba(255,215,0,0.2) 50%, rgba(218,165,32,0.1) 75%)',
-				'black-gold-gradient': 'linear-gradient(180deg, #111111 0%, #000000 100%)',
+				'gold-gradient': 'linear-gradient(135deg, #818cf8 0%, #6366f1 50%, #a78bfa 100%)',
+				'gold-shimmer': 'linear-gradient(90deg, rgba(99,102,241,0.08) 25%, rgba(167,139,250,0.18) 50%, rgba(99,102,241,0.08) 75%)',
+				'black-gold-gradient': 'linear-gradient(180deg, #0d0d12 0%, #050507 100%)',
 			}
 		}
 	},

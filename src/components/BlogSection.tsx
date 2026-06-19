@@ -64,9 +64,14 @@ const BlogSection = ({ limit: blogLimit }: { limit?: number }) => {
   return (
     <section className="py-20" id="blog">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-12 text-center">
-          <span className="gold-text-gradient">Latest Blog Posts</span>
-        </h2>
+        <div className="text-center mb-14">
+          <p className="text-sm font-medium uppercase tracking-widest text-gold-400 mb-3">
+            Writing
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+            Latest Blog Posts
+          </h2>
+        </div>
         
         {blogPosts.length === 0 ? (
           <div className="text-center text-gray-400">
@@ -82,7 +87,7 @@ const BlogSection = ({ limit: blogLimit }: { limit?: number }) => {
                       <span>{post.date}</span>
                       <span>{post.readTime}</span>
                     </div>
-                    <CardTitle className="text-gold-400">{post.title}</CardTitle>
+                    <CardTitle className="text-neutral-900">{post.title}</CardTitle>
                   </CardHeader>
                   
                   <CardContent className="pt-4">

@@ -72,9 +72,14 @@ const ProjectsSection = ({ limit: projectLimit }: { limit?: number }) => {
   return (
     <section className="py-20" id="projects">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-12 text-center">
-          <span className="gold-text-gradient">Featured Projects</span>
-        </h2>
+        <div className="text-center mb-14">
+          <p className="text-sm font-medium uppercase tracking-widest text-gold-400 mb-3">
+            Selected work
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+            Featured Projects
+          </h2>
+        </div>
 
         {projects.length === 0 ? (
           <div className="text-center text-gray-400">
@@ -86,9 +91,9 @@ const ProjectsSection = ({ limit: projectLimit }: { limit?: number }) => {
               {projects.map((project) => (
                 <Card
                   key={project.id}
-                  className="gold-card overflow-hidden group transition-all duration-300 hover:-translate-y-2 h-[500px] flex flex-col"
+                  className="gold-card overflow-hidden group hover:-translate-y-1 h-[500px] flex flex-col"
                 >
-                  <div className="h-48 w-full bg-gradient-to-br from-gold-900 to-black flex items-center justify-center overflow-hidden relative">
+                  <div className="h-48 w-full bg-gradient-to-br from-indigo-900/40 to-black flex items-center justify-center overflow-hidden relative">
                     {project.imageUrl ? (
                       <div className="w-full h-full relative">
                         <CloudinaryImage
@@ -108,7 +113,7 @@ const ProjectsSection = ({ limit: projectLimit }: { limit?: number }) => {
                   </div>
 
                   <CardHeader className="flex-shrink-0">
-                    <CardTitle className="text-gold-400 text-lg line-clamp-1">
+                    <CardTitle className="text-neutral-900 text-lg line-clamp-1">
                       {project.title}
                     </CardTitle>
                     <div className="flex flex-wrap gap-2 mt-2">
